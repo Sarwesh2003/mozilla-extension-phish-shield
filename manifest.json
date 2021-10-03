@@ -5,12 +5,14 @@
     "description":"This extension detects any suspicious URL. With 89% accuracy",
     "browser_action":{
         "default_popup":"index.html",
-        "default_icon":"res/icon48.png"
+        "default_icon":"res/icon48.png",
+        "default_title": "Phish-Shield"
     },
     "icons":{
         "48":"res/icon48.png",
         "96":"res/icon96.png"
     },
+
     "permissions":[
         "activeTab"
     ]
