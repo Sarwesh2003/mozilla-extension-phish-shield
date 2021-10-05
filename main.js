@@ -1,8 +1,8 @@
-const subButton=document.getElementById("button")
-const responseText=document.getElementById("result")
+const subButton=document.getElementById("sub")
+const responseText=document.getElementById("res")
 //let res=true
 
-responseText.innerText="Results will appear here"
+/*responseText.innerText="Results will appear here"
 subButton.onclick=function(){
     responseText.innerText="Loading..."
     fetch( 'https://phishshield.herokuapp.com/post?URL=https://www.faceb0ok.com/' )
@@ -24,11 +24,19 @@ subButton.onclick=function(){
         else{
             responseText.innerText="Phishing website"
         }
-    } );
+    } );*/
+    const clearInput = () => {
+        const input = document.getElementsByTagName("input")[0];
+        input.value = "";
+      }
+      
+      const clearBtn = document.getElementById("clear-btn");
+      clearBtn.addEventListener("click", clearInput);
+    
     
 
 
-}
+//}
 
 
 
