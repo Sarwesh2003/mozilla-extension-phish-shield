@@ -1,6 +1,12 @@
 const subButton=document.getElementById("sub")
 const responseText=document.getElementById("res")
+const backbtn=document.getElementById("back")
 //let res=true
+subButton.onclick=function(){
+    responseText.innerText="Hello"
+    alert("Click")
+}
+
 
 /*responseText.innerText="Results will appear here"
 subButton.onclick=function(){
@@ -25,15 +31,8 @@ subButton.onclick=function(){
             responseText.innerText="Phishing website"
         }
     } );*/
-    const clearInput = () => {
-        const input = document.getElementsByTagName("input")[0];
-        input.value = "";
-      }
-      
-      const clearBtn = document.getElementById("clear-btn");
-      clearBtn.addEventListener("click", clearInput);
-    
-    
+   
+   
 
 
 //}
