@@ -16,7 +16,6 @@ body{
     border-radius: 10px;
     text-align: center;
     color: #fff;
-    background-color: #17181c;
 }
 #line{
 	width:80%
@@ -24,7 +23,6 @@ body{
 #bodyPart{
     text-align: center;
     border-color: #2762f3;;
-    background-color: #17181c;;
     height: 100%;
 }
 
@@ -63,6 +61,7 @@ form.example input[type=text] {
 	border: 1px solid grey;
 	align-self: center;
 	width: 70%;
+	color: black;
 	background: #f1f1f1;
   }
   
@@ -89,7 +88,6 @@ form.example input[type=text] {
 	clear: both;
 	display: table;
   }
-
   .back-btn{  
 	  position: relative;
 	  background-color: transparent;
@@ -102,4 +100,45 @@ form.example input[type=text] {
 	  border-style: solid;
 	  border-width: 1px;
   }
-  
+  .blink-bg-green{
+	color: #fff;
+	padding: 10px;
+	display: inline-block;
+	border-radius: 5px;
+	animation: blinkingBackground 6s reverse;
+}
+@keyframes blinkingBackground{
+	0%		{ background-color: #17181c;}
+	25%		{ background-color: lightgreen;}
+	50%		{ background-color: limegreen;}
+	75%		{ background-color: lime;}
+	100%	        { background-color: #17181c}
+}
+.blink-bg-red{
+	color: #fff;
+	padding: 10px;
+	display: inline-block;
+	border-radius: 5px;
+	animation: blinkingBackgroundred 6s reverse;
+}
+@keyframes blinkingBackgroundred{
+	0%		{ background-color: #17181c;}
+	25%		{ background-color: #D22B2B;}
+	50%		{ background-color: red;}
+	75%		{ background-color: #D22B2B;}
+	100%	        { background-color: #17181c}
+}
+.blink-bg-yellow{
+	color: #fff;
+	padding: 10px;
+	display: inline-block;
+	border-radius: 5px;
+	animation: blinkingBackgroundyellow 6s reverse;
+}
+@keyframes blinkingBackgroundyellow{
+	0%		{ background-color: #17181c;}
+	25%		{ background-color: #efcc00;}
+	50%		{ background-color: #fff000;}
+	75%		{ background-color: #fff000;}
+	100%	        { background-color: #17181c}
+}
