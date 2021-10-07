@@ -1,24 +1,41 @@
-const subButton=document.getElementById("sub")
-const responseText=document.getElementById("res")
-const backbtn=document.getElementById("back")
-const bg=document.getElementsByTagName("body")[0]
-const urlText=document.getElementById("search")
-const input=document.getElementById("inputform")
-//let res=true
-/*subButton.onclick=function(){
-    responseText.innerText="Hello"
-    bg.className="blink-bg-yellow"
-    let temp=document.getElementById("search").value
-    console.log(temp)
-}*/
+const subButton=document.getElementById("sub")          //Submit button
+const responseText=document.getElementById("res")       //Response div
+const backbtn=document.getElementById("back")           //Back button
+const bg=document.getElementsByTagName("body")[0]       //Body tag for animation
+const urlText=document.getElementById("search")         //TextBox for URL
 
+responseText.innerText="Results will appear here"
 
-
-//input.addEventListener("submit",(event))
-
-function showResult(){
-    responseText.innerText="Loading..."
+//Submit button
+subButton.onclick=function(){
     let url=urlText.value
+    if(check_url(url)){
+        showResult(url)
+    }
+    else{
+        responseText.innerText="URL not valid"
+    }
+    bg.className=""
+}
+
+//If user press enter on textbox adter entering URL
+urlText.addEventListener("keydown",e=>{
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        let url=urlText.value
+        if(check_url(url)){
+            showResult(url)
+        }
+        else{
+            responseText.innerText="URL not valid"
+        }
+        bg.className=""
+      }
+})
+
+//Function to fetch server
+function showResult(url){
+    responseText.innerText="Loading..."
     fetch( 'https://phishshield.herokuapp.com/post?URL='+url )
     .then( response => response.json() )
     .then( response => {
@@ -39,24 +56,22 @@ function showResult(){
     }
     urlText.value=""
         
-    } );
+    } )
+    .catch(error=>{
+        responseText.innerText="Something went wrong. Please Check your internet connection"
+    });
     
 }
 
-responseText.innerText="Results will appear here"
-urlText.addEventListener("keydown",e=>{
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        // Trigger the button element with a click
-        showResult()
-      }
-})
-
-
-subButton.onclick=function(){
-    showResult()
-    bg.className=""
+//Function to check input URL
+function check_url(myURL){
+	var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ //port
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i');
+            return pattern.test(myURL);
 }
-
 
 
